@@ -4,21 +4,19 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
     header("Location:../login.php");
     exit();
 }
-
-$current_admin_id = $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>SmartCafe Admin Dashboard</title>
     <link rel="stylesheet" href="../css/adminDashboard.css"/>
-    <link rel="icon" href="../../assets/logo.png"/>
+
 </head>
 <body>
     <div class="admin-container">
         <aside class="admin-sidebar">
             <div class="sidebar-header">
-                <img src="../assets/logo.png" alt="SmartCafe Logo" class="logo">
+                <img src="../../assets/logo.png" alt="SmartCafe Logo" class="logo">
                 <span>Smart Cafe Admin</span>
             </div>
             <nav>
@@ -27,7 +25,6 @@ $current_admin_id = $_SESSION['user_id'];
                     <li><a href="#" id="managerTab">Managers</a></li>
                     <li><a href="#" id="customerTab">Customers</a></li>
                     <li><a href="#" id="profileTab">My Profile</a></li>
-                    <li><a href="#" id="salesTab">Sales Report</a></li>
                     <li><button id="logoutBtn">Logout</button></li>
                 </ul>
             </nav>
@@ -85,19 +82,13 @@ $current_admin_id = $_SESSION['user_id'];
                 </form>
                 <div id="customerTableContainer" class="table-container"></div>
             </section>
+
             <section id="profileSection" class="admin-section" style="display:none;">
                 <h2>My Profile</h2>
                 <div id="profileContainer" class="profile-container"></div>
             </section>
-            <section id="salesSection" class="admin-section" style="display:none;">
-                <h2>Total Sales Report</h2>
-                <div id="salesReportContainer" class="sales-container"></div>
-            </section>
         </main>
     </div>
-    <script>
-        let currentAdminId = <?php echo $current_admin_id; ?>;
-    </script>
     <script src="../js/adminDashboard.js"></script>
 </body>
 </html>
