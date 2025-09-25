@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initDashboard() {
     setupTabNavigation();
     setupLogout();
-
+    switchTab('adminSection')
 }
 
 function setupTabNavigation() {
@@ -14,7 +14,7 @@ function setupTabNavigation() {
         adminTab.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("Admin clicked");
-            //switchTab('adminSection');
+            switchTab('adminSection');
         });
     }
 
@@ -23,7 +23,7 @@ function setupTabNavigation() {
         managerTab.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("manager clicked");
-            //switchTab('managerSection');
+            switchTab('managerSection');
         });
     }
 
@@ -32,7 +32,7 @@ function setupTabNavigation() {
         customerTab.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("customer clicked");
-            //switchTab('customerSection');
+            switchTab('customerSection');
         });
     }
 
@@ -41,11 +41,21 @@ function setupTabNavigation() {
         profileTab.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("Profile clicked");
-            //switchTab('profileSection');
+            switchTab('profileSection');
         });
     }
 }
+function switchTab(sectionId) {
 
+    document.querySelectorAll('.admin-section').forEach(s => s.style.display = 'none');
+    let active = document.getElementById(sectionId);
+    if (!active) return;
+    active.style.display = 'block';
+    if (sectionId === 'adminSection') loadAdmins();
+    else if (sectionId === 'managerSection') loadManagers();
+    else if (sectionId === 'customerSection') loadCustomers();
+    else if (sectionId === 'profileSection') loadProfile();
+}
 
 
 
