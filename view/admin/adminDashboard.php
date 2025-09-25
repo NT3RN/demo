@@ -33,16 +33,21 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
 
             <section id="adminSection" class="admin-section">
                 <h2>Admin Management</h2>
-                <form id="addAdminForm" class="user-form">
+                <form id="addAdminForm" class="user-form" novalidate>
                     <input type="text" name="username" placeholder="Username" required>
+                    <span class="error-message" id="admin-username-error"></span>
                     <input type="email" name="email" placeholder="Email" required>
+                    <span class="error-message" id="admin-email-error"></span>
                     <input type="password" name="password" placeholder="Password" required>
+                    <span class="error-message" id="admin-password-error"></span>
                     <select name="security_question" required>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>
                     </select>
+                    <span class="error-message" id="admin-sq-error"></span>
                     <input type="text" name="security_answer" placeholder="Security Answer" required>
+                    <span class="error-message" id="admin-sa-error"></span>
                     <button type="submit">Add Admin</button>
                 </form>
                 <div id="adminTableContainer" class="table-container"></div>
@@ -50,17 +55,23 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
 
             <section id="managerSection" class="admin-section" style="display:none;">
                 <h2>Manager Management</h2>
-                <form id="addManagerForm" class="user-form">
+                <form id="addManagerForm" class="user-form" novalidate>
                     <input type="text" name="username" placeholder="Username" required>
+                    <span class="error-message" id="manager-username-error"></span>
                     <input type="email" name="email" placeholder="Email" required>
+                    <span class="error-message" id="manager-email-error"></span>
                     <input type="password" name="password" placeholder="Password" required>
+                    <span class="error-message" id="manager-password-error"></span>
                     <select name="security_question" required>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>
                     </select>
+                    <span class="error-message" id="manager-sq-error"></span>
                     <input type="text" name="security_answer" placeholder="Security Answer" required>
+                    <span class="error-message" id="manager-sa-error"></span>
                     <input type="number" name="salary" placeholder="Salary" step="0.01" required>
+                    <span class="error-message" id="manager-salary-error"></span>
                     <button type="submit">Add Manager</button>
                 </form>
                 <div id="managerTableContainer" class="table-container"></div>
@@ -68,16 +79,21 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
 
             <section id="customerSection" class="admin-section" style="display:none;">
                 <h2>Customer Management</h2>
-                <form id="addCustomerForm" class="user-form">
+                <form id="addCustomerForm" class="user-form" novalidate>
                     <input type="text" name="username" placeholder="Username" required>
+                    <span class="error-message" id="customer-username-error"></span>
                     <input type="email" name="email" placeholder="Email" required>
+                    <span class="error-message" id="customer-email-error"></span>
                     <input type="password" name="password" placeholder="Password" required>
+                    <span class="error-message" id="customer-password-error"></span>
                     <select name="security_question" required>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>
                     </select>
+                    <span class="error-message" id="customer-sq-error"></span>
                     <input type="text" name="security_answer" placeholder="Security Answer" required>
+                    <span class="error-message" id="customer-sa-error"></span>
                     <button type="submit">Add Customer</button>
                 </form>
                 <div id="customerTableContainer" class="table-container"></div>

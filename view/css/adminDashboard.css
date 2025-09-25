@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #f5f6fa;
+    background-color: #8cbee7;
     line-height: 1.6;
 }
 
@@ -19,7 +19,6 @@ body {
     width: 280px;
     background: linear-gradient(135deg, #442d20 0%, #7e441e 100%);
     color: white;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
 }
 
 .sidebar-header {
@@ -81,7 +80,7 @@ body {
     background: #c0392b;
 }
 
-/* Main Content Styles */
+/* Main Styles */
 .admin-main {
     flex: 1;
     padding: 30px;
@@ -89,7 +88,7 @@ body {
 }
 
 .admin-section {
-    background: white;
+    background: rgb(128, 94, 63);
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
@@ -106,37 +105,57 @@ body {
 
 /* Form Styles */
 .user-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 350px;
+    margin: 0 auto 24px auto;
+    padding: 20px 24px 16px 24px;
+    background: #ffffff;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .user-form input,
-.user-form select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
+.user-form select,
+.user-form button {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+    border-color: #3498db;
+    outline: none;
 }
 
 .user-form button {
-    grid-column: 1 / -1;
-    padding: 12px;
-    background: #27ae60;
-    color: white;
+    background: #3498db;
+    color: #fff;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    margin-top: 8px;
+    transition: background 0.2s;
 }
 
 .user-form button:hover {
-    background: #219a52;
+    background: #217dbb;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    min-height: 18px;
+    margin-bottom: 0px;
+    margin-top: -4px;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.2px;
 }
 
 /* Table Styles */
@@ -275,7 +294,3 @@ body {
 .message.error { background: #e74c3c; }
 .message.info { background: #3498db; }
 
-@keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
