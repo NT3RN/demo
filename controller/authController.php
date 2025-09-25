@@ -33,7 +33,7 @@
             else
             {
                 session_start();
-                $_SESSION["user_id"] = $row['user_id'];
+                $_SESSION["user_id"] = $users['user_id'];
                 $_SESSION["email"]=$users["email"];
                 $_SESSION["role"]=$users["role"];
                 if($users["role"]=="Admin"){
