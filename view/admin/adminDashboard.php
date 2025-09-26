@@ -41,6 +41,7 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
                     <input type="password" name="password" placeholder="Password" required>
                     <span class="error-message" id="admin-password-error"></span>
                     <select name="security_question" required>
+                        <option value="">-- Select Security Question --</option>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>
@@ -65,6 +66,7 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
                     <input type="password" name="password" placeholder="Password" required>
                     <span class="error-message" id="manager-password-error"></span>
                     <select name="security_question" required>
+                        <option value="">-- Select Security Question --</option>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>
@@ -91,6 +93,7 @@ if (!isset($_SESSION["email"]) || !isset($_SESSION["role"]) || $_SESSION["role"]
                     <input type="password" name="password" placeholder="Password" required>
                     <span class="error-message" id="customer-password-error"></span>
                     <select name="security_question" required>
+                        <option value="">-- Select Security Question --</option>
                         <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                         <option value="What was the name of your first pet?">What was the name of your first pet?</option>
                         <option value="What city were you born in?">What city were you born in?</option>

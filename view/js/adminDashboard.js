@@ -13,7 +13,6 @@ function setupTabNavigation() {
     if (adminTab) {
         adminTab.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log("Admin clicked");
             switchTab('adminSection');
         });
     }
@@ -22,7 +21,6 @@ function setupTabNavigation() {
     if (managerTab) {
         managerTab.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log("manager clicked");
             switchTab('managerSection');
         });
     }
@@ -31,7 +29,6 @@ function setupTabNavigation() {
     if (customerTab) {
         customerTab.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log("customer clicked");
             switchTab('customerSection');
         });
     }
@@ -40,77 +37,67 @@ function setupTabNavigation() {
     if (profileTab) {
         profileTab.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log("Profile clicked");
             switchTab('profileSection');
         });
     }
 }
-function switchTab(sectionId) {
 
+function switchTab(sectionId) {
     document.querySelectorAll('.admin-section').forEach(s => s.style.display = 'none');
     let active = document.getElementById(sectionId);
     if (!active) return;
     active.style.display = 'block';
+    
     if (sectionId === 'adminSection'){
         loadAdmins();
-        console.log("Loading admins");
     } 
     else if (sectionId === 'managerSection'){
-        //loadManagers();
-        console.log("Loading managers");
+        // Future: loadManagers();
     } 
     else if (sectionId === 'customerSection') {
-        //loadCustomers();
-        console.log("Loading customers");
+        // Future: loadCustomers();
     }
     else if (sectionId === 'profileSection') {
-        //loadProfile();
-        console.log("Loading profile");
+        // Future: loadProfile();
     }
 }
 
 function setupFormValidation() {
     let adminForm = document.getElementById('addAdminForm');
     if (adminForm) {
-        console.log('Admin form found, setting up validation');
         adminForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Admin form submitted');
             
             if (basicUserFormCheck(this, false)) {
-                console.log('Validation passed, calling addAdmin');
                 addAdmin(this);
-            } else {
-                console.log('Validation failed');
             }
         });
-    } else {
-        console.log('Admin form NOT found');
     }
     
     let managerForm = document.getElementById('addManagerForm');
     if (managerForm) {
         managerForm.addEventListener('submit', function(e) {
-            if (!basicUserFormCheck(this, true)) {
-                e.preventDefault();
+            e.preventDefault();
+            if (basicUserFormCheck(this, true)) {
+                // Future: addManager(this);
             }
         });
     }
+    
     let customerForm = document.getElementById('addCustomerForm');
     if (customerForm) {
         customerForm.addEventListener('submit', function(e) {
-            if (!basicUserFormCheck(this, false)) {
-                e.preventDefault();
+            e.preventDefault();
+            if (basicUserFormCheck(this, false)) {
+                // Future: addCustomer(this);
             }
         });
     }
 }
 
 function basicUserFormCheck(form, isManager) {
-    console.log('Starting validation for form:', form.id);
     let valid = true;
     
-
     form.querySelectorAll('.error-message').forEach(span => span.textContent = '');
 
     let username = form.querySelector('input[name="username"]');
@@ -153,7 +140,6 @@ function basicUserFormCheck(form, isManager) {
         valid = false;
     }
 
-    console.log('Validation result:', valid);
     return valid;
 }
 
@@ -230,23 +216,19 @@ function displayAdmins(admins) {
 }
 
 function addAdmin(form) {
-    console.log('addAdmin called');
     let formData = new FormData(form);
-    
-    for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-    }
     
     fetch('../../controller/adminController.php', {
         method: 'POST',
         body: formData
     })
     .then(response => {
-        console.log('Response status:', response.status);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return response.json();
     })
     .then(data => {
-        console.log('Response data:', data);
         if (data.success) {
             form.reset();
             form.querySelectorAll('.error-message').forEach(span => span.textContent = '');
@@ -258,7 +240,7 @@ function addAdmin(form) {
     })
     .catch(error => {
         console.error('Error adding admin:', error);
-        alert('Error adding admin: ' + error.message);
+        alert('Error adding admin');
     });
 }
 
