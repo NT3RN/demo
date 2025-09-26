@@ -21,11 +21,6 @@ function getAllAdmins() {
 function addAdmin($username, $email, $password, $security_question, $security_answer) {
     $conn = getConnect();
     
-    $username = mysqli_real_escape_string($conn, $username);
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
-    $security_question = mysqli_real_escape_string($conn, $security_question);
-    $security_answer = mysqli_real_escape_string($conn, $security_answer);
     $role = 'Admin';
     
     $sql = "INSERT INTO Users (username, email, password, role, security_question, security_answer) 
@@ -39,7 +34,6 @@ function addAdmin($username, $email, $password, $security_question, $security_an
 
 function checkEmailExists($email) {
     $conn = getConnect();
-    $email = mysqli_real_escape_string($conn, $email);
     
     $sql = "SELECT * FROM Users WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
@@ -52,7 +46,6 @@ function checkEmailExists($email) {
 
 function deleteAdmin($user_id) {
     $conn = getConnect();
-    $user_id = mysqli_real_escape_string($conn, $user_id);
     
     $sql = "DELETE FROM Users WHERE user_id='$user_id' AND role='Admin'";
     $result = mysqli_query($conn, $sql);
