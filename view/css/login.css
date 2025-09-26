@@ -1,3 +1,7 @@
+*{
+    background: #dab795;
+}
+
 #loginDiv {
     width: 400px;
     margin: 50px auto;
@@ -17,6 +21,28 @@ form {
     align-items: center;
 }
 
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo-container a {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.logo-container a:hover {
+    transform: scale(1.05);
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+    cursor: pointer;
+}
+
 h1 {
     color: #333;
     margin-bottom: 20px;
@@ -27,16 +53,22 @@ h1 {
 .input-group {
     width: 80%;
     margin: 10px 10px;
-    
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"],
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin: 5px 0;
+    font-size: 14px;
+}
+
+select {
+    background-color: white;
 }
 
 input[type="submit"] {
@@ -52,4 +84,30 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+
+span {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.classDanger {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.forgetpass {
+    margin-top: 15px;
+}
+
+.forgetpass a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.forgetpass a:hover {
+    text-decoration: underline;
 }
